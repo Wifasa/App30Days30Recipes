@@ -4,6 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class Day(
-    @StringRes val stringResourceId: Int,
+    @StringRes val stringDay: Int,
+    @StringRes val stringDayRecipeName: Int,
+    @StringRes val stringDayRecipe: Int,
     @DrawableRes val imageResourceId: Int
 )
