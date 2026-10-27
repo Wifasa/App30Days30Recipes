@@ -10,11 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,9 +23,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.joseangel.a30dias.ui.theme.App30Dias30RecetasTheme
 import com.joseangel.a30dias.data.Datasource
 import com.joseangel.a30dias.model.Day
-import com.joseangel.a30dias.ui.theme.App30Dias30RecetasTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +34,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             App30Dias30RecetasTheme {
                 Scaffold(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize().padding(top = 24.dp)
                 ) {
                     DaysApp()
                 }
@@ -68,7 +66,7 @@ fun DayList(dayList: List<Day>, modifier: Modifier = Modifier) {
 @Composable
 fun DayCard(day: Day, modifier: Modifier = Modifier) {
     Card(modifier = modifier) {
-        Column {
+        Column(Modifier.padding(16.dp)) {
             Text(
                 text = stringResource(day.stringDay)
             )
@@ -81,7 +79,8 @@ fun DayCard(day: Day, modifier: Modifier = Modifier) {
                 contentDescription = stringResource(day.stringDayRecipeName),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(194.dp),
+                    .height(194.dp)
+                    .padding(4.dp),
                 contentScale = ContentScale.Crop
             )
             Text(
